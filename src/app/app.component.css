@@ -1,0 +1,33 @@
+  h1{
+    color: rgb(31, 30, 29);
+    font-size: 25px;
+  }
+  h3{
+    color: rgb(161, 49, 67);
+  }
+
+  img {
+    width: 300px;
+    border-radius: 10px;
+    margin-right: 1rem;
+    display:inline-flex;
+  }
+
+  input{
+    display: block;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 16px;
+  }
+
+  .highlight {
+    color: red;
+    font-weight: bold;
+  }
+  .highlightt {
+    color: white;
+    background-color: black;
+    font-weight: bold;
+  }
+  
+  
