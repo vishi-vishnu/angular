@@ -2,24 +2,27 @@
 <h3>I'm Studying in {{ college }}</h3>
 
 <p [style.color]="textColor">Near Madurai district</p>
-<input [value]="department" placeholder="Enter your Department..">
+<input [value]="department" placeholder="Enter your Department.." />
 
 <img [src]="imageUrl" alt="" />
-<img [src]="imageUrl2" alt="collge picture">
+<img [src]="imageUrl2" alt="collge picture" />
 
 <button [disabled]="isDisabled">YES</button>
-<input type="checkbox" [checked]="isChecked">
-  <p [style.color]="isError ? 'red' : 'green'">
-    {{ isError ? 'Error occurred!' : 'Everything is fine' }}
-  </p>
+<input type="checkbox" [checked]="isChecked" />
+<p [style.color]="isError ? 'red' : 'green'">
+  {{ isError ? "Error occurred!" : "Everything is fine" }}
+</p>
 
 <!-- <p[style.color]=></p> -->
 <div [class]="dynamicClass">Hello, Angular!</div>
 
-<p [class.highlightt]="isHighlighted" (mouseover)="isHighlighted = true" (mouseleave)="isHighlighted = false">
-    Hover over me to change color
-  </p>
-
+<p
+  [class.highlightt]="isHighlighted"
+  (mouseover)="isHighlighted = true"
+  (mouseleave)="isHighlighted = false"
+>
+  Hover over me to change color
+</p>
 
 <!-- //EVENT BINDING (event) Used to bind an event like - click, keypress, mouseover -->
 
@@ -27,8 +30,5 @@
 <button (click)="changeMessage()">Yes</button>
 <button (click)="changeMessage2()">NO</button>
 
-<!-- <h3>enter your name again</h3> -->
-<input (input)="updateUsername($event)" placeholder="enter your name ...">
+<input (input)="updateUsername($event)" placeholder="enter your name ..." />
 <h2>Your Name: {{ username }}</h2>
-
-  
