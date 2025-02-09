@@ -1,0 +1,75 @@
+<h5>Templatedriven works!</h5>
+<div class="contanier">
+  <div class="row">
+    <div class="col-md-12">
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Fisrt Name</label
+          >
+          <input
+            type="text"
+            name="fName"
+            [(ngModel)]="user.fName"
+            #fName="ngModel"
+            class="form-control"
+            minlength="6"
+            required
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+
+          @if (fName.invalid && fName.touched) {
+          <div style="color: red">
+            @if (fName.errors?.['required']) {
+            <p>First Name is required</p>
+            } @if (fName.errors?.['minlength']) {
+            <p>Min 6 characters are required</p>
+            }
+          </div>
+          }
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Example textarea</label
+          >
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="userForm.invalid"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
