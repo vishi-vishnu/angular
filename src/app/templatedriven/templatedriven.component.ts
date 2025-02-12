@@ -14,7 +14,24 @@ export class TemplatedrivenComponent {
     fName: '',
     lName: '',
     email: '',
+    textarea:'',
+
   };
+
+  username='';
+
+  message='Are you studying in ECE Dept?';
+
+  changeMessage() {
+    this.message = 'OKAY Your studying in ECE dept.';
+  }
+  changeMessage2() {
+    this.message = 'So Your Not studying in ECE dept.';
+  }
+
+  updateUsername(event: Event) {
+    this.username = (event.target as HTMLInputElement).value;
+  }
 
   onSubmit(form: any) {
     console.log(form.value, 'useeeeeee');

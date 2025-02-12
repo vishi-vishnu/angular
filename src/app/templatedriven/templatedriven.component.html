@@ -1,11 +1,19 @@
-<h5>Templatedriven works!</h5>
-<div class="contanier">
+<h5 class="text-center bg-light">Templatedriven works!</h5>
+
+
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <input (input)="updateUsername($event)" placeholder="Enter your name here.." />
+        <h2 style="color: blue;">Your Name is: {{ username }}</h2>
+          <p>{{ message }}</p>
+          <button class="btn  btn-success px-3 " type="button" (click)="changeMessage()">Yes</button>
+          <button class="btn btn-danger px-3 ms-2" type="button" (click)="changeMessage2()">NO</button> <!--"ms" for left margin "me" for right margin-->
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label"
-            >Fisrt Name</label
+          >Fisrt Name</label
           >
           <input
             type="text"
@@ -30,26 +38,56 @@
           }
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"
+          <label for="exampleFormControlInput2" class="form-label"
             >Last Name</label
           >
           <input
             type="text"
+            name="lName"
+            [(ngModel)]="user.lName"
+            #lName="ngModel"
+            minlength="3"
             class="form-control"
-            id="exampleFormControlInput1"
+            required id="exampleFormControlInput2"
             placeholder="name@example.com"
           />
+
+          @if(lName.invalid && lName.touched){
+            <div style="color: red;">
+              @if(lName.errors?.['required']){
+                <p>Last Name is required</p>
+              }@if (lName.errors?.['minlength']){
+                <p>Minimum 3 Characters are required!</p>
+              }
+            </div>
+          }
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"
+          <label for="email" class="form-label"
             >Email address</label
           >
           <input
             type="email"
+            name="email"
             class="form-control"
-            id="exampleFormControlInput1"
+            required
+            id="emailInput"
+            [(ngModel)]="user.email"
+            #email="ngModel"
+            minlength="10"
+            maxlength="30"
             placeholder="name@example.com"
           />
+
+          @if(email.invalid && email.touched){
+            <div style="color: red;">
+              @if(email.errors?.['required']){
+                <p>Email is required</p>
+              }@if(email.errors?.['minlength']){
+                <p>Email must be Minimum 10 characters</p>
+              }
+            </div>
+          }
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label"
@@ -59,8 +97,27 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
+            type="textarea"
+            name="textarea"
+            required
+            id="textarea"
+            [(ngModel)]="user.textarea"
+            #textarea="ngModel"
+            minlength="10"
+            maxlength="30"
+            placeholder="Add your question here.."
           ></textarea>
         </div>
+
+        @if(textarea.invalid && textarea.touched){
+          <div style="color: red;">
+            @if(textarea.errors?.['required']){
+              <p>Write Something</p>
+            }@if(textarea.errors?.['minlength']){
+              <p>Minimum 10 characters</p>
+            }
+          </div>
+        }
 
         <button
           type="submit"
