@@ -36,4 +36,8 @@ export class TemplatedrivenComponent {
   onSubmit(form: any) {
     console.log(form.value, 'useeeeeee');
   }
+
+  submitted(){
+    alert('You have successfully submitted!')
+  }
 }
