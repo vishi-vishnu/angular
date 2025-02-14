@@ -1,4 +1,94 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" routerLink="">KLN College</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="template">Forms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="viewchild">ViewChild</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-bs-toggle="dropdown">
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another Action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">More Options</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex ms-3">
+        <input class="form-control search-bar me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-primary search-btn" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<style>
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #007bff !important;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  color: #333;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #ff5733 !important;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;  /*--Remember--*/
+}
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+.search-bar {
+  border-radius: 25px;
+}
+
+.search-btn {
+  border-radius: 25px;
+  padding: 5px 15px;
+}
+</style>
+
+  <router-outlet></router-outlet>
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button
@@ -64,7 +154,7 @@
       </form>
     </div>
   </div>
-</nav>
+</nav> -->
 <!-- 
 <h1>Name: {{ title }}</h1>
 <h3>I'm Studying in {{ college }}</h3> -->
@@ -101,4 +191,3 @@
 <input (input)="updateUsername($event)" placeholder="enter your name ..." />
 <h2>Your Name: {{ username }}</h2> -->
 
-<router-outlet></router-outlet>
