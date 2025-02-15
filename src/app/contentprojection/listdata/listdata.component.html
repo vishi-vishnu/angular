@@ -1,0 +1,11 @@
+<p>listdata works!</p>
+<ng-content select=".title"></ng-content>
+<ul class=" product" >
+    <li class="list-inline-item1" *ngFor="let item of data">
+        <p>{{item.id | uppercase}}</p>
+        <p>{{item.product}}</p>
+    </li>
+   
+  </ul>
+<ng-content select=".price"></ng-content>
+
