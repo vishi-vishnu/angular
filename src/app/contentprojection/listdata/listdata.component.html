@@ -1,10 +1,19 @@
-<p>listdata works!</p>
+<div class="book-card">
+  <ng-content select=".title"></ng-content>  <!-- Projected book title -->
+  <ng-content select=".book-image"></ng-content>  <!-- Projected book image -->
+  <ng-content select=".price"></ng-content>  <!-- Projected book price -->
+  <ng-content select=".rating"></ng-content>  <!-- Projected book rating -->
+</div>
+
+
+<!-- <p>listdata works!</p>
 <ng-content select=".title"></ng-content>
 <ul class=" product" >
     <li class="list-inline-item1" *ngFor="let item of data">
-        <p>{{item.id | uppercase}}</p>
+        <p>{{item.id}}</p>
         <p>{{item.product}}</p>
     </li>
   </ul>
-<ng-content select=".price"></ng-content>
+<ng-content select=".price"></ng-content> -->
+
 
