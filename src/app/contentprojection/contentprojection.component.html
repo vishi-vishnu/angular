@@ -2,8 +2,10 @@
   <h3 class="my-3 text-center" style="color: rgb(53, 53, 214);">Book Store</h3>
   <div class="container">
     <div class="row">
-      
-      <div class="col-md-4 my-3" style="border: 1px solid black;" *ngFor="let book of books">
+
+      <!-- using *ngFor loops through the array, it will create seperate div again and again-->
+
+      <div class="col-md-4 sm-2 my-3" style="border: 1px solid black;" *ngFor="let book of books">
         <app-listdata [bookData]="book">
           <h4 class="title text-center mt-3">{{ book.name }}</h4>
           <img class="book-image mb-2 .img-fluid mx-auto" [src]="book.imageUrl" alt="{{ book.name }}">
@@ -12,7 +14,7 @@
         </app-listdata>
       </div>
     </div>
-  </div>
+  </div>  
 </div>
 
 <!-- <div class="container product">
