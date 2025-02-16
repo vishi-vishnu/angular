@@ -1,0 +1,20 @@
+<p>library works!</p>
+
+<div class="fruit-container">
+    <h3 class="heading text-center">Fruit store</h3>
+    <p class="fst-italic text-center">-- Fruit cravings on the floor --</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-4" style="border: 1px solid grey;" *ngFor=" let fruit of fruits" >
+                <!-- The fruit is [fruitData] = "fruit" name and "fruits" is the library.component.ts file export thing -->
+                    <app-fruitdata [fruitData]="fruit">
+                    <h3 class="title">{{fruit.name}}</h3>
+                    <img [src]="fruit.imageUrl" alt="{{fruit.name}}" class="fruit-image">
+                    <p class="price">Price:₹ {{fruit.price}}</p>
+                    <p class="taste">Fruit Taste:😋 {{fruit.taste}}/5</p>
+                </app-fruitdata>
+            </div>
+        </div>
+    </div>
+</div>

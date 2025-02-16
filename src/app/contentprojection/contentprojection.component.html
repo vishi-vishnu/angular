@@ -1,20 +1,30 @@
 <div class="book-container">
-  <h3 class="my-3 text-center" style="color: rgb(53, 53, 214);">Book Store</h3>
+  <h3 class="my-3 text-center" style="color: rgb(53, 53, 214)">Book Store</h3>
+  <p class="fst-italic text-center">-- Books available in college library --</p>
   <div class="container">
     <div class="row">
-
       <!-- using *ngFor loops through the array, it will create seperate div again and again-->
 
-      <div class="col-md-4 sm-2 my-3" style="border: 1px solid black;" *ngFor="let book of books">
+      <div
+        class="col-md-4 sm-2 my-3"
+        style="border: 1px solid black"
+        *ngFor="let book of books"
+      >
         <app-listdata [bookData]="book">
-          <h4 class="title text-center mt-3">{{ book.name }}</h4>
-          <img class="book-image mb-2 .img-fluid mx-auto" [src]="book.imageUrl" alt="{{ book.name }}">
-          <p class="price">Price:₹ {{ book.price }}</p>
+          <h4 class="title text-center mt-3" style="border: 1px solid grey">
+            {{ book.name }}
+          </h4>
+          <img
+            class="book-image mb-2 .img-fluid mx-auto"
+            [src]="book.imageUrl"
+            alt="{{ book.name }}"
+          />
+          <p class="price mb-0">Price:₹ {{ book.price }}</p>
           <p class="rating">Rating:⭐ {{ book.rating }}/5</p>
         </app-listdata>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 
 <!-- <div class="container product">

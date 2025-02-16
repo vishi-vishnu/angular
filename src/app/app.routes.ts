@@ -4,6 +4,7 @@ import { TemplatedrivenComponent } from './templatedriven/templatedriven.compone
 import { authGuard } from './auth.guard';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ContentprojectionComponent } from './contentprojection/contentprojection.component';
+import { LibraryComponent } from './library/library.component';
 
 export const routes: Routes = [
   {
@@ -27,5 +28,9 @@ export const routes: Routes = [
   {
     path: 'contentprojection',
     component: ContentprojectionComponent,
-  }
+  },
+  {
+    path: 'library',
+    component: LibraryComponent,
+  },
 ];
