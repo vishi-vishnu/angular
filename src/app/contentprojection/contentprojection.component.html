@@ -6,12 +6,12 @@
       <!-- using *ngFor loops through the array, it will create seperate div again and again-->
 
       <div
-        class="col-md-4 sm-2 my-3"
-        style="border: 1px solid black"
+        class="col-md-4 sm-2 my-3 p-1"
         *ngFor="let book of books"
       >
-        <app-listdata [bookData]="book">
-          <h4 class="title text-center mt-3" style="border: 1px solid grey">
+      <div style="border: 1px solid black; padding: 20px;">
+        <app-listdata >
+          <h4 class="title text-center mt-3" style="border: 1px solid grey" #bookName>
             {{ book.name }}
           </h4>
           <img
@@ -22,6 +22,7 @@
           <p class="price mb-0 fw-bold">Price:₹ {{ book.price }}</p>
           <p class="rating fw-normal ">Rating:⭐ {{ book.rating }}/5</p>
         </app-listdata>
+        </div>
       </div>
     </div>
   </div>

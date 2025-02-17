@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-listdata',
@@ -8,9 +8,24 @@ import { Component, Input } from '@angular/core';
   templateUrl: './listdata.component.html',
   styleUrls: ['./listdata.component.css']
 })
-export class ListdataComponent {
+export class ListdataComponent implements AfterContentInit{
+
   @Input() bookData!: { id: number, name: string, imageUrl: string, price: number, rating: number };
+
+  //content child
+  @ContentChild("bookName", { static: false }) bookName!: ElementRef;
+
+  ngAfterContentInit(): void {
+    setTimeout(() => {
+      if (this.bookName) {
+        console.log(this.bookName, 'hhh')
+        this.bookName.nativeElement.style.color = 'red';
+      }
+    });
+  }
+  
 }
+
 
 
 // import { CommonModule } from '@angular/common';
