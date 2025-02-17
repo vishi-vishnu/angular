@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-12">
       <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-        <input class="mb-2" (input)="updateUsername($event)" placeholder="Enter your name here.." />
+        <input class="mb-2" [(ngModel)]="username" placeholder="Enter your name here.." />
         <h2 style="color: blue;">Your Name is: {{ username }}</h2>
           <p>{{ message }}</p>
           <button class="btn  btn-success px-3" type="button" (click)="changeMessage()">Yes</button>
