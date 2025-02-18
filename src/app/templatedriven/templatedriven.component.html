@@ -5,8 +5,8 @@
   <div class="row">
     <div class="col-md-12">
       <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-        <input class="mb-2" [(ngModel)]="username" placeholder="Enter your name here.." />
-        <h2 style="color: blue;">Your Name is: {{ username }}</h2>
+        <input class="mb-2" name="username" [(ngModel)]="username" placeholder="Enter your name here.." />
+        <h2 style="color: blue;">Your Name is: {{ username }}</h2>        
           <p>{{ message }}</p>
           <button class="btn  btn-success px-3" type="button" (click)="changeMessage()">Yes</button>
           <button class="btn btn-danger px-3 ms-2" type="button" (click)="changeMessage2()">NO</button> <!--"ms" for left margin "me" for right margin-->
@@ -26,15 +26,21 @@
             placeholder="name@example.com"
           />
 
-          @if (fName.invalid && fName.touched) {
-          <div style="color: red">
-            @if (fName.errors?.['required']) {
-            <p>First Name is required</p>
-            } @if (fName.errors?.['minlength']) {
-            <p>Min 6 characters are required</p>
+          <!-- Instead of @if (fName.invalid && fName.touched) { ... } -->
+        <!-- <div *ngIf="fName.invalid && fName.touched" style="color: red">
+          <p *ngIf="fName.errors?.['required']">First Name is required</p>
+          <p *ngIf="fName.errors?.['minlength']">Min 6 characters are required</p>
+        </div> -->
+        @if(textarea.invalid && textarea.touched){
+          <div style="color: red;">
+            @if(textarea.errors?.['required']){
+              <p>Write Something</p>
+            }@if(textarea.errors?.['minlength']){
+              <p>Minimum 10 characters</p>
             }
           </div>
-          }
+        }
+
         </div>
         <div class="mb-3">
           <label for="exampleFormControlInput2" class="form-label"

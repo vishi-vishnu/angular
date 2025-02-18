@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './templatedriven.component.html',
-  styleUrl: './templatedriven.component.css',
+  styleUrls: ['./templatedriven.component.css'],
+
 })
 export class TemplatedrivenComponent {
   user = {
