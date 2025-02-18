@@ -36,6 +36,31 @@
         </ul>
       </section>
 
+      <!-- //just example for showcasing the page below -->
+      <section>
+        <div class="row text-center fw-bolder">
+          Do you want to display the library and fruit section-
+          <div class="col-12 text-center">
+            <button type="button" class=" btn me-2 bg-primary" (click)="changedcomponent='contentprojection'">Fruits</button>
+            <button type="button" class="btn me-2 bg-primary" (click)="changedcomponent='library'">Library</button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="changedcomponent === 'contentprojection'">
+          <div class="col-12 text-center">
+            <app-contentprojection></app-contentprojection>
+          </div>
+        </div>
+        
+        <div class="row" *ngIf="changedcomponent === 'library'">
+          <div class="col-12 text-center">
+            <app-library></app-library>
+          </div>
+        </div>
+        
+      </section>
+<!-- getting ended here  -->
+
       <section class="location my-4 text-center">
         <h2>Our location</h2>
         <p>KLN college of Engineering, Madurai, Tamil Nadu, India.</p>

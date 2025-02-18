@@ -2,12 +2,18 @@ import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
+
+// showcasing of two page below
+import { ContentprojectionComponent } from '../contentprojection/contentprojection.component';
+import { LibraryComponent } from '../library/library.component';
+
 @Component({
   selector: 'app-lifecycle',
   templateUrl: './lifecycle.component.html',
   styleUrl: './lifecycle.component.css',
   standalone:true,
-  imports: [CommonModule, RouterModule,FormsModule],
+  imports: [CommonModule, RouterModule,FormsModule,ContentprojectionComponent,LibraryComponent],
+  // For making btn to change page example
 })
 
 export class LifecycleComponent implements DoCheck,OnInit{
@@ -27,6 +33,6 @@ export class LifecycleComponent implements DoCheck,OnInit{
       this.prevTitle = this.title;
     }
   }
+  //btn change exaxmple to page showcasing
+  changedcomponent : string = "contentprojection";
 }
-
-
