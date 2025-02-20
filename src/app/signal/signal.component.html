@@ -1,23 +1,11 @@
 
 <h2>College Dashboard</h2>
 
-<p>Signal Works! -- {{ val1() }}</p>
-<p>Signal Works! -- {{ a }}</p>
-<p>Total: {{ total() }} {{ c }}</p>
+<div>
+  <p>Value 1: {{ val1() }}</p>
+  <p>Value A: {{ a }}</p>
+  <button type="button" (click)="updateVal()">Update Value</button>
+</div>
 
-<button (click)="updateVal()">Update Value</button>
-<!-- practice -->
-
-
-<h3>Student Registration Count</h3>
-<p>Live Registered Students: <strong>{{ studentCount() }}</strong></p>
-
-<h3>🎓 Average GPA (Live)</h3>
-<p>Current Avg GPA: <strong>{{ avgGPA() }}</strong></p>
-
-<h3>Upcoming Events</h3>
-<ul>
-  <li *ngFor="let event of events()">{{ event }}</li>
-</ul>
-
-<button (click)="addEvent()">Add Random Event</button>
+  <h3>Balance Information</h3>
+  <p>Current Balance: {{ balance() }}</p>
