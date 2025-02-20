@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-templatedriven',
@@ -40,5 +41,15 @@ export class TemplatedrivenComponent {
 
   submitted(){
     alert('You have successfully submitted!')
+  }
+
+constructor(private apiservice : PostsService){
+  this.getUser()
+}
+  getUser(){
+    this.apiservice.getPost().subscribe((data)=> {
+      console.log(data, 'templetwee')
+      // this.data1 = data as any[];
+    })
   }
 }

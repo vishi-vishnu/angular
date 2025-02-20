@@ -1,12 +1,16 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-signal',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './signal.component.html',
   styleUrls: ['./signal.component.css']
 })
-export class SignalComponent {
+export class SignalComponent implements OnInit{
   a = 10;
   b = 20;
   c = this.a + this.b;
@@ -17,7 +21,9 @@ export class SignalComponent {
 
   balance = signal(100);
 
-  constructor() {
+  // private http = inject(HttpClient)
+  // private api = new PostsService;
+  constructor(private http : HttpClient, private apiservice : PostsService) {
     effect(() => {
       console.log(`Val1 updated: ${this.val1()}`);
     });
@@ -34,6 +40,10 @@ export class SignalComponent {
     this.balance.set(150);
     this.balance.update((value: number) => value- 50);
   }
+  ngOnInit(): void {
+    this.getPost();
+    this.getUser();
+  }
 
   updateVal() {
     console.log(`Total Before: ${this.c}, ${this.total()}`);
@@ -42,4 +52,24 @@ export class SignalComponent {
     this.val1.update(val => val + 5);
     console.log(`Total After: ${this.c}, ${this.total()}`);
   }
+
+  //Api service
+   data1: any[] = [];
+    getPost(){
+    console.log('data', 'dataaaaaa')
+
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe((data)=> {
+      console.log(data, 'dataaaaaa')
+      this.data1 = data as any[];
+    })
+  }
+
+  getUser(){
+    console.log('data', 'dataaaaaa')
+
+    this.apiservice.getPost().subscribe((data)=> {
+      console.log(data, '1111111')
+      // this.data1 = data as any[];
+    })
+  };
 }

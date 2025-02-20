@@ -9,3 +9,11 @@
 
   <h3>Balance Information</h3>
   <p>Current Balance: {{ balance() }}</p>
+
+
+  <ul class=" product" >
+    <li class="list-inline-item1" *ngFor="let item of data1">
+        <p>{{item.id}}</p>
+        <p>{{item.title}}</p>
+    </li>
+  </ul>

@@ -34,7 +34,7 @@ export class AppComponent {
   changeMessage2() {
     this.message = 'NOW Your Not studying in ECE dept.';
   }
-
+  
   updateUsername(event: Event) {
     this.username = (event.target as HTMLInputElement).value;
   }
