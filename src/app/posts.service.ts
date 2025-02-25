@@ -3,10 +3,10 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // ✅ This makes the service available everywhere in the app
 })
-export class PostsService {
 
+export class PostsService {
 //private http = inject(HttpClient);
  public URL = "https://jsonplaceholder.typicode.com/posts"
  
@@ -15,4 +15,4 @@ export class PostsService {
   getPost(): Observable<any>{
     return this.http.get(this.URL)
   }
-}
+} 
