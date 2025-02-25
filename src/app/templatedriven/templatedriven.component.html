@@ -27,19 +27,19 @@
           />
 
           <!-- Instead of @if (fName.invalid && fName.touched) { ... } -->
-        <!-- <div *ngIf="fName.invalid && fName.touched" style="color: red">
+        <div *ngIf="fName.invalid && fName.touched" style="color: red">
           <p *ngIf="fName.errors?.['required']">First Name is required</p>
           <p *ngIf="fName.errors?.['minlength']">Min 6 characters are required</p>
-        </div> -->
-        @if(textarea.invalid && textarea.touched){
+        </div>
+        <!-- @if(fName.invalid && fName.touched){
           <div style="color: red;">
-            @if(textarea.errors?.['required']){
-              <p>Write Something</p>
-            }@if(textarea.errors?.['minlength']){
-              <p>Minimum 10 characters</p>
+            @if(fName.errors?.['required']){
+              <p>First Name is required</p>
+            }@if(fName.errors?.['minlength']){
+              <p>Minimum 8 characters</p>
             }
           </div>
-        }
+        } -->
 
         </div>
         <div class="mb-3">
@@ -124,11 +124,11 @@
           </div>
         }
 
+        <!-- (click)="submitted()" -->
         <button
           type="submit"
           [disabled]="userForm.invalid"
           class="btn btn-primary"
-          (click)="submitted()"
         >
           Submit
         </button>

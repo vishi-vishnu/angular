@@ -9,24 +9,27 @@ import { PostsService } from '../posts.service';
   imports: [CommonModule, FormsModule],
   templateUrl: './templatedriven.component.html',
   styleUrls: ['./templatedriven.component.css'],
-
 })
 export class TemplatedrivenComponent {
   user = {
     fName: '',
     lName: '',
     email: '',
-    textarea:'',
-
+    textarea: '',
   };
 
-  username='';
+  username = '';
+  message = 'Are you studying in ECE Dept?';
 
-  message='Are you studying in ECE Dept?';
+  constructor(private apiservice: PostsService) {
+    // If you want to test a GET request on load
+    this.getUser();
+  }
 
   changeMessage() {
     this.message = 'OKAY Your studying in ECE dept.';
   }
+
   changeMessage2() {
     this.message = 'So Your Not studying in ECE dept.';
   }
@@ -36,20 +39,25 @@ export class TemplatedrivenComponent {
   }
 
   onSubmit(form: any) {
-    console.log(form.value, 'useeeeeee');
+    console.log('Form Data:', form.value);
+
+    // we call the service to POST form data
+
+    this.apiservice.submitFormData(form.value).subscribe(
+      (response) => {
+        console.log('Response from Server:', response);
+        alert('Form submitted successfully!');
+      }
+    );
   }
 
-  submitted(){
-    alert('You have successfully submitted!')
+  getUser() {
+    this.apiservice.getPost().subscribe((data) => {
+      console.log('GET request data:', data);
+    });
   }
 
-constructor(private apiservice : PostsService){
-  this.getUser()
-}
-  getUser(){
-    this.apiservice.getPost().subscribe((data)=> {
-      console.log(data, 'templetwee')
-      // this.data1 = data as any[];
-    })
-  }
+  // submitted() {
+  //   alert('You have successfully submitted!');
+  // }
 }
