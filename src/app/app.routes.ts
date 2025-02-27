@@ -36,10 +36,11 @@ export const routes: Routes = [
     component: LibraryComponent,
   },
   {
+    // path: 'signal/:id',
     path: 'signal',
-    component: SignalComponent
+    component: SignalComponent,
   },
-  {
-    path:'*', redirectTo:'', pathMatch:'full'
-  }
+  // {
+  //   path:'*', redirectTo:'', pathMatch:'full'
+  // }
 ];

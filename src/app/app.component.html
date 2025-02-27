@@ -23,8 +23,11 @@
           <a class="nav-link" routerLink="library">Library</a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link" routerLink="signal">Signal</a>
+          <a class="nav-link" routerLink="signal/88">Signal 2</a>
         </li> 
+        <li>
+          <a [routerLink]="['/signal']" [queryParams]="{ name: 'Vishnu', age: 22 }">Go to User</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-bs-toggle="dropdown">
             More

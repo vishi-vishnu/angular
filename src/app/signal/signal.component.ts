@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
 import { PostsService } from '../posts.service';
+import { ChildpageComponent } from './childpage/childpage.component';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-signal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ChildpageComponent],
   templateUrl: './signal.component.html',
   styleUrls: ['./signal.component.css']
 })
@@ -20,10 +22,16 @@ export class SignalComponent implements OnInit{
   total = computed(() => this.val1() + this.val2());
 
   balance = signal(100);
+  getroute = 0
 
   // private http = inject(HttpClient)
   // private api = new PostsService;
-  constructor(private http : HttpClient, private apiservice : PostsService) {
+  constructor(private http : HttpClient, private apiservice : PostsService, private route : ActivatedRoute) {
+
+     console.log(this.route.snapshot?.params?.['id'])
+     let queryid = this.route.snapshot.queryParamMap.get('name') || '';
+     console.log(queryid, 'queryid')
+     this.getroute = this.route.snapshot?.params?.['id'];
     effect(() => {
       console.log(`Val1 updated: ${this.val1()}`);
     });
@@ -72,4 +80,12 @@ export class SignalComponent implements OnInit{
       this.data1 = data as any[];
     })
   };
+
+
+  //Output decorder
+  childdata = "";
+  getChilddata(value: any){
+ console.log(value, 'value')
+ this.childdata = value
+  }
 }

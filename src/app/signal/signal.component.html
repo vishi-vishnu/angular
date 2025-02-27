@@ -7,9 +7,11 @@
   <button type="button" (click)="updateVal()">Update Value</button>
 </div>
 
-  <h3>Balance Information</h3>
+  <h3>Balance Information {{childdata}} {{getroute}}</h3>
   <p>Current Balance: {{ balance() }}</p>
-
+  <div style="border: 1px solid red">
+    <app-childpage (messageEvent)="getChilddata($event)"></app-childpage>
+  </div>
 
   <ul class=" product" >
     <li class="list-inline-item1" *ngFor="let item of data1">
@@ -17,3 +19,5 @@
         <p>{{item.title}}</p>
     </li>
   </ul>
+
+
